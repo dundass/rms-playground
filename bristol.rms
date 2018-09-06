@@ -1,0 +1,175 @@
+/* --- farmlands of brizzle --- */
+
+#const FARMNEW 29
+#const FARMDEAD 8
+
+// which AI type? NOMAD works..
+//ai_info_map_type ARABIA
+
+<PLAYER_SETUP>
+random_placement
+
+<LAND_GENERATION>
+base_terrain DIRT
+create_player_lands
+{
+	terrain_type FARMNEW
+	land_percent 10
+	top_border 3
+	right_border 4
+	left_border 4
+	base_size 7
+	other_zone_avoidance_distance 3
+}
+
+<ELEVATION_GENERATION>
+create_elevation 6
+{
+	base_terrain GRASS
+	number_of_tiles 1000
+	number_of_clumps 24
+	set_scale_by_groups
+}
+
+<CLIFF_GENERATION>
+
+<TERRAIN_GENERATION>
+create_terrain FARMDEAD
+{
+	base_terrain DIRT
+	land_percent 20
+	number_of_clumps 4
+	set_scale_by_groups
+}
+create_terrain WATER 
+{
+	base_terrain DIRT
+	land_percent 5
+	number_of_clumps 10
+}
+create_terrain FOREST
+{
+	base_terrain DIRT
+	land_percent 20
+	number_of_clumps 15
+	set_scale_by_groups
+}
+create_terrain GRASS3
+{
+	base_terrain DIRT
+	land_percent 5
+	number_of_clumps 4
+}
+
+<CONNECTION_GENERATION>
+
+<OBJECTS_GENERATION>
+create_object TOWN_CENTER
+{
+	set_place_for_every_player
+	group_placement_radius 18
+	min_distance_to_players 0
+	max_distance_to_players 0
+}
+create_object VILLAGER
+{
+	set_place_for_every_player
+	min_distance_to_players 2
+	max_distance_to_players 3
+}
+create_object SCOUT
+{
+	number_of_objects 1
+	set_place_for_every_player
+	min_distance_to_players 7
+	max_distance_to_players 9
+}
+create_object SHEEP
+{
+	number_of_objects 5
+	number_of_groups 2
+	set_loose_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 9
+	max_distance_to_players 11
+}
+create_object STONE
+{
+	number_of_objects 6
+	number_of_groups 5
+	set_tight_grouping
+	set_gaia_object_only
+	set_scaling_to_map_size
+	min_distance_to_players 10
+	max_distance_to_players 100
+}
+create_object FORAGE
+{
+	number_of_objects 6
+	number_of_groups 1
+	set_place_for_every_player
+	set_tight_grouping
+	set_gaia_object_only
+	min_distance_to_players 9
+	max_distance_to_players 12
+}
+create_object DEER
+{
+	number_of_objects 4
+	set_place_for_every_player
+	set_gaia_object_only
+	set_loose_grouping
+	min_distance_to_players 16
+	max_distance_to_players 18
+}
+create_object BOAR
+{
+		number_of_objects 2
+		set_place_for_every_player
+		set_gaia_object_only
+		min_distance_to_players 14
+		max_distance_to_players 15
+}
+//player oaks
+create_object OAKTREE
+{
+		number_of_objects 5
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 4
+		max_distance_to_players 5
+		min_distance_group_placement 2
+}
+create_object GOLD
+{
+	number_of_objects 7
+	number_of_groups 4
+	set_tight_grouping
+	group_placement_radius 3
+	set_scaling_to_map_size
+	min_distance_group_placement 3
+	min_distance_to_players 10
+	max_distance_to_players 100
+	temp_min_distance_group_placement 7
+}
+create_object RELIC
+{
+	number_of_objects 5
+	min_distance_to_players 10
+	max_distance_to_players 100
+}
+create_object SHORE_FISH
+{
+	number_of_objects 40
+}
+create_object TUNA
+{
+	number_of_objects 30
+}
+create_object HEAD
+{
+	number_of_objects 100
+	min_distance_to_players 20
+	max_distance_to_players 100
+}

@@ -1,0 +1,176 @@
+/* --- a network of cell membranes --- */
+
+// which AI type? NOMAD works..
+//ai_info_map_type NOMAD
+
+<PLAYER_SETUP>
+random_placement
+
+<LAND_GENERATION>
+base_terrain GRASS
+create_player_lands
+{
+	terrain_type GRASS3
+	land_percent 2.5
+	top_border 20
+	right_border 20
+	left_border 20
+	base_size 3
+	other_zone_avoidance_distance 3
+}
+
+<ELEVATION_GENERATION>
+create_elevation 6
+{
+	base_terrain GRASS
+	number_of_tiles 10
+	number_of_clumps 24
+	set_scale_by_groups
+}
+
+<CLIFF_GENERATION>
+
+<TERRAIN_GENERATION>
+create_terrain FOREST
+{
+	base_terrain GRASS
+	land_percent 100
+	number_of_clumps 1
+}
+create_terrain GRASS
+{
+	base_terrain FOREST
+	land_percent 9
+	number_of_clumps 50
+	set_avoid_player_start_areas
+}
+
+<CONNECTION_GENERATION>
+
+<OBJECTS_GENERATION>
+create_object TOWN_CENTER
+{
+	set_place_for_every_player
+	group_placement_radius 18
+	min_distance_to_players 0
+	max_distance_to_players 0
+	terrain_type 
+}
+create_object VILLAGER
+{
+	set_place_for_every_player
+	min_distance_to_players 2
+	max_distance_to_players 3
+}
+create_object SCOUT
+{
+	number_of_objects 1
+	set_place_for_every_player
+	min_distance_to_players 7
+	max_distance_to_players 9
+}
+create_object LUMBER_CAMP
+{
+	number_of_objects 1
+	set_place_for_every_player
+	min_distance_to_players 2
+	max_distance_to_players 2
+}
+create_object SHEEP
+{
+	number_of_objects 5
+	number_of_groups 2
+	set_loose_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	min_distance_to_players 9
+	max_distance_to_players 11
+}
+create_object STONE
+{
+	number_of_objects 6
+	number_of_groups 5
+	set_tight_grouping
+	set_gaia_object_only
+	set_scaling_to_map_size
+	min_distance_to_players 10
+	max_distance_to_players 100
+	terrain_to_place_on GRASS
+}
+create_object FORAGE
+{
+	number_of_objects 6
+	number_of_groups 1
+	set_place_for_every_player
+	set_tight_grouping
+	set_gaia_object_only
+	min_distance_to_players 8
+	max_distance_to_players 10
+}
+create_object DEER
+{
+	number_of_objects 4
+	set_place_for_every_player
+	set_gaia_object_only
+	set_loose_grouping
+	min_distance_to_players 16
+	max_distance_to_players 18
+}
+create_object BOAR
+{
+		number_of_objects 2
+		set_place_for_every_player
+		set_gaia_object_only
+		min_distance_to_players 14
+		max_distance_to_players 15
+}
+//player oaks
+create_object OAKTREE
+{
+		number_of_objects 5
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 4
+		max_distance_to_players 5
+		min_distance_group_placement 2
+}
+create_object GOLD
+{
+	number_of_objects 7
+	number_of_groups 5
+	set_tight_grouping
+	group_placement_radius 3
+	set_scaling_to_map_size
+	min_distance_group_placement 3
+	min_distance_to_players 10
+	max_distance_to_players 100
+	temp_min_distance_group_placement 7
+	terrain_to_place_on GRASS
+}
+//create_object GOLD
+//{
+//	number_of_objects 6
+//	number_of_groups 1
+//	set_tight_grouping
+//	set_place_for_every_player
+//	min_distance_to_players 2
+//	max_distance_to_players 2
+//	terrain_to_place_on GRASS3
+//}
+create_object RELIC
+{
+	number_of_objects 5
+	min_distance_to_players 10
+	max_distance_to_players 100
+}
+//maybe add a pond ?
+create_object SHORE_FISH
+{
+	number_of_objects 40
+}
+create_object HEAD
+{
+	number_of_objects 200
+	min_distance_to_players 10
+	max_distance_to_players 100
+}

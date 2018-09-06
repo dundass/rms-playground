@@ -1,0 +1,555 @@
+/* ************ NEW RMS ************ */
+
+/*Author uses the AOE 2 RANDOM MAP SCRIPT GENERATOR by [soz]Exekutor*/
+
+/* 20.04.2017 */
+
+/*** by Waldock edits by vjaz ***/
+
+ai_info_map_type    BLACK_FOREST
+
+/* ****************************************************** */
+<LAND_GENERATION>
+
+base_terrain                   FOREST         
+
+create_player_lands
+{
+terrain_type                   GRASS             
+land_percent                   8.0
+base_size                           4.5
+border_fuzziness             7.5
+}
+
+create_land  /* the "relic isle" :) */
+{
+terrain_type DIRT
+number_of_tiles 100  /* fixed size */
+left_border 30  right_border 30  /* keep this isle near the center of the map */
+top_border 70  bottom_border 25
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+
+}
+
+
+create_land  /* the "horse castle" :) */
+{
+terrain_type DIRT2
+number_of_tiles 100  /* fixed size */
+left_border 30  right_border 30  /* keep this isle near the top of the map */
+top_border 25  bottom_border 70
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+
+}
+
+create_land  /* the "bow castle" :) */
+{
+terrain_type DIRT3
+number_of_tiles 100  /* fixed size */
+left_border 25  right_border 70  /* keep this isle near the top of the map */
+top_border 30  bottom_border 30
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+
+}
+
+create_land  /* the "elite sword castle" :) */
+{
+terrain_type GRASS2
+number_of_tiles 100  /* fixed size */
+left_border 70  right_border 25 /* keep this isle near the top of the map */
+top_border 30  bottom_border 30
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+
+}
+
+create_land  /* the "relic border" :) */
+{
+terrain_type DESERT
+number_of_tiles 100  /* fixed size */
+left_border 45  right_border 45 /* keep this isle near the top of the map */
+top_border 96  bottom_border 0
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+}
+
+create_land  /* the "relic border" :) */
+{
+terrain_type DESERT
+number_of_tiles 100  /* fixed size */
+left_border 45  right_border 45 /* keep this isle near the top of the map */
+top_border 0  bottom_border 96
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+}
+
+create_land  /* the "relic border" :) */
+{
+terrain_type DESERT
+number_of_tiles 100  /* fixed size */
+left_border 0  right_border 96 /* keep this isle near the top of the map */
+top_border 45  bottom_border 45
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+}
+
+create_land  /* the "relic border" :) */
+{
+terrain_type DESERT
+number_of_tiles 100  /* fixed size */
+left_border 96  right_border 0 /* keep this isle near the top of the map */
+top_border 45  bottom_border 45
+clumping_factor 15  /* roundish */
+zone 2
+other_zone_avoidance_distance 5
+}
+
+
+
+
+/* ****************************************************** */
+<TERRAIN_GENERATION>
+
+/* PRIMARY PATCH */
+
+create_terrain BEACH       
+{
+base_terrain                   BAMBOO     
+spacing_to_other_terrain_types 1
+land_percent                   0
+number_of_clumps               0
+set_scale_by_size
+}
+
+/* SECONDARY PATCH */
+
+create_terrain BEACH       
+{
+base_terrain                   BAMBOO     
+spacing_to_other_terrain_types 1
+land_percent                   0
+number_of_clumps               0
+set_scale_by_size
+}
+
+/* PRIMARY FOREST */
+
+create_terrain FOREST
+{
+base_terrain                   FOREST            
+spacing_to_other_terrain_types 5
+land_percent                   98.5
+number_of_clumps               100
+set_avoid_player_start_areas
+set_scale_by_groups
+}
+
+/* SECONDARY FOREST */
+
+create_terrain BAMBOO        
+{
+base_terrain                   BAMBOO     
+spacing_to_other_terrain_types 3
+land_percent                   0
+number_of_clumps               0
+set_avoid_player_start_areas
+set_scale_by_groups
+}
+
+/* PRIMARY WATER */
+
+create_terrain SHALLOW    
+{
+base_terrain                   BAMBOO     
+land_percent                   0
+number_of_clumps               0
+set_avoid_player_start_areas
+set_flat_terrain_only 
+set_scale_by_groups
+}
+
+/* SECONARY WATER */
+
+create_terrain SHALLOW   
+{
+base_terrain                   BAMBOO     
+land_percent                   0
+number_of_clumps               0
+set_avoid_player_start_areas
+set_flat_terrain_only 
+set_scale_by_groups
+}
+
+/* TERTIARY WATER */
+
+create_terrain SHALLOW   
+{
+base_terrain                   BAMBOO     
+land_percent                   0
+number_of_clumps               0
+set_avoid_player_start_areas
+set_flat_terrain_only 
+set_scale_by_groups
+}
+
+/* ****************************************************** */
+<ELEVATION_GENERATION>
+create_elevation       0
+{
+base_terrain    GRASS             
+number_of_clumps    0
+number_of_tiles    2543
+set_scale_by_groups
+set_scale_by_size
+}
+ 
+/* ****************************************************** */
+<CLIFF_GENERATION>
+min_number_of_cliffs    0
+max_number_of_cliffs    0
+min_length_of_cliffs    0
+max_lenght_of_cliffs    0
+ 
+/* ****************************************************** */
+<OBJECTS_GENERATION>
+
+/* PLAYER START OBJECTS */
+
+create_object TOWN_CENTER
+{
+  set_place_for_every_player
+  group_placement_radius     18
+  min_distance_to_players    0
+  max_distance_to_players    0
+}
+
+create_object VILLAGER
+{
+  set_place_for_every_player
+  min_distance_to_players       3
+  max_distance_to_players       4
+ }
+ 
+ create_object LUMBER_CAMP
+ {
+	set_place_for_every_player
+	min_distance_to_players 5
+	max_distance_to_players 7
+ }
+
+/* No Scout */
+
+/* SPECIAL STUFF FOR REGICIDE */
+
+if REGICIDE
+create_object VILLAGER
+{
+  number_of_objects             7
+  set_place_for_every_player
+  min_distance_to_players       6
+  max_distance_to_players       6
+}
+
+create_object KING
+{
+  set_place_for_every_player
+  min_distance_to_players       6
+  max_distance_to_players       6
+}
+
+create_object CASTLE
+{
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    10
+}
+
+endif
+
+/* NEAR FORAGE */
+
+create_object FORAGE
+{
+  number_of_objects          6
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    10
+  max_distance_to_players    12
+  min_distance_group_placement  6
+}
+
+/* --DELTETED-- STANDARD GOLD AND STONE */
+
+
+
+create_object DEER
+{
+  number_of_objects          4
+  group_variance             1
+  group_placement_radius     3
+  set_loose_grouping
+  set_gaia_object_only
+  set_place_for_every_player
+  min_distance_to_players    14
+  max_distance_to_players    30
+}
+
+/* *****RESOURCES BY MAP***** */
+
+if LARGE_MAP
+create_object FORAGE
+{
+  number_of_groups           1    
+  number_of_objects          5
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  min_distance_to_players       40
+  max_distance_to_players       120
+  min_distance_group_placement  9
+}
+endif
+
+if HUGE_MAP
+create_object FORAGE
+{
+  number_of_groups           2    
+  number_of_objects          5
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  min_distance_to_players       40
+  max_distance_to_players       120
+  min_distance_group_placement  9
+}
+endif
+
+if GIGANTIC_MAP
+create_object FORAGE
+{
+  number_of_groups           3    
+  number_of_objects          5
+  group_placement_radius     3
+  set_tight_grouping
+  set_gaia_object_only
+  min_distance_to_players       40
+  max_distance_to_players       120
+  min_distance_group_placement  9
+}
+endif
+
+/* --DELETED-- EXTRA GOLD AND STONE */
+
+/*RELIC SPACE*/
+
+create_object RELIC
+{
+number_of_objects 3
+set_scaling_to_player_number  
+terrain_to_place_on DIRT  /* only on the "relic isle"! */
+}
+
+create_object RELIC
+{
+number_of_objects 2
+set_scaling_to_player_number  
+terrain_to_place_on DESERT  /* only on the "relic isle"! */
+}
+
+create_object GOLD
+{
+number_of_groups   4
+number_of_objects      4
+group_placement_radius     2
+terrain_to_place_on DESERT
+set_tight_grouping
+set_gaia_object_only
+}
+
+create_object STONE
+{
+number_of_groups   5
+number_of_objects      5
+group_placement_radius     2
+terrain_to_place_on DESERT
+set_tight_grouping
+set_gaia_object_only
+}
+
+
+
+
+/* BAA BAA */
+
+create_object SHEEP
+{
+   number_of_objects 4
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    10
+   max_distance_to_players    12
+} 
+
+create_object SHEEP
+{
+   number_of_objects 2
+   number_of_groups 2
+   set_loose_grouping
+   set_gaia_object_only
+   set_place_for_every_player
+   min_distance_to_players    14
+   max_distance_to_players    30
+}
+
+/* Custom  Gold near */
+
+
+ 
+create_object GOLD
+{
+number_of_groups   1
+number_of_objects      10
+group_placement_radius     2
+set_tight_grouping
+set_gaia_object_only
+set_place_for_every_player
+min_distance_to_players       5
+max_distance_to_players       5
+min_distance_group_placement  7
+max_distance_to_other_zones  7
+}
+
+ create_object    DEER
+{
+number_of_objects    10
+set_gaia_object_only
+set_tight_grouping
+set_place_for_every_player
+min_distance_to_players    5
+max_distance_to_players    5
+}
+
+create_object FORAGE
+{
+number_of_groups   1
+number_of_objects      8
+group_placement_radius     2
+set_tight_grouping
+set_gaia_object_only
+set_place_for_every_player
+min_distance_to_players       5
+max_distance_to_players       5
+min_distance_group_placement  7
+max_distance_to_other_zones  7
+}
+
+create_object     STABLE
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on DIRT2
+}
+
+create_object THE_ACCURSED_TOWER
+{
+number_of_objects    4
+set_gaia_object_only
+terrain_to_place_on DIRT2
+}
+
+create_object     PALADIN
+{
+number_of_objects     10
+set_gaia_object_only
+set_tight_grouping
+terrain_to_place_on DIRT2
+}
+
+create_object     EL_CID_CAMPEADOR
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on DIRT2
+}
+
+create_object     CASTLE
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on DIRT3
+}
+
+create_object     ELITE_LONGBOWMAN
+{
+number_of_objects     10
+set_tight_grouping
+set_gaia_object_only
+terrain_to_place_on DIRT3
+}
+
+create_object     ROBIN_HOOD
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on DIRT3
+}
+
+create_object THE_ACCURSED_TOWER
+{
+number_of_objects    2
+set_gaia_object_only
+terrain_to_place_on DIRT3
+}
+
+create_object     BARRACKS
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on GRASS2
+}
+
+create_object     CHAMPION
+{
+number_of_objects     10
+set_tight_grouping
+set_gaia_object_only
+terrain_to_place_on GRASS2
+}
+
+create_object     WILLIAM_WALLACE
+{
+number_of_objects     1
+set_gaia_object_only
+terrain_to_place_on GRASS2
+}
+
+create_object THE_ACCURSED_TOWER
+{
+number_of_objects    4
+set_gaia_object_only
+terrain_to_place_on GRASS2
+}
+
+create_object THE_ACCURSED_TOWER
+{
+number_of_objects     1
+set_place_for_every_player
+min_distance_to_players       4
+max_distance_to_players       4
+}
+
+
+ 

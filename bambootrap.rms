@@ -1,0 +1,157 @@
+/* --- bamboo trap --- */
+
+<PLAYER_SETUP>
+random_placement
+
+<LAND_GENERATION>
+base_terrain GRASS
+create_player_lands
+{
+	terrain_type DIRT2
+	land_percent 3
+	top_border 20
+	right_border 20
+	left_border 20
+	base_size 7
+	other_zone_avoidance_distance 3
+}
+
+<ELEVATION_GENERATION>
+create_elevation 6
+{
+	base_terrain GRASS
+	number_of_tiles 300
+	number_of_clumps 30
+	set_scale_by_groups
+}
+
+<CLIFF_GENERATION>
+
+<TERRAIN_GENERATION>
+create_terrain BAMBOO
+{
+	base_terrain GRASS
+	land_percent 19
+	number_of_clumps 40
+	set_avoid_player_start_areas
+}
+create_terrain DIRT
+{
+	base_terrain BAMBOO
+	spacing_to_other_terrain_types 3
+	land_percent 5
+	number_of_clumps 30
+}
+create_terrain GRASS2
+{
+	base_terrain GRASS
+	land_percent 3
+	number_of_clumps 20
+	set_avoid_player_start_areas
+}
+
+<CONNECTION_GENERATION>
+
+<OBJECTS_GENERATION>
+create_object TOWN_CENTER
+{
+	set_place_for_every_player
+	group_placement_radius 18
+	min_distance_to_players 0
+	max_distance_to_players 0
+	terrain_type 
+}
+create_object VILLAGER
+{
+	set_place_for_every_player
+	min_distance_to_players 2
+	max_distance_to_players 3
+}
+create_object SCOUT
+{
+	number_of_objects 1
+	set_place_for_every_player
+	min_distance_to_players 7
+	max_distance_to_players 9
+}
+create_object SHEEP
+{
+	number_of_objects 5
+	number_of_groups 2
+	set_loose_grouping
+	set_gaia_object_only
+	set_place_for_every_player
+	terrain_to_place_on DIRT
+}
+create_object STONE
+{
+	number_of_objects 6
+	number_of_groups 5
+	set_tight_grouping
+	set_gaia_object_only
+	set_scaling_to_map_size
+	terrain_to_place_on DIRT
+}
+create_object FORAGE
+{
+	number_of_objects 6
+	number_of_groups 1
+	set_place_for_every_player
+	set_tight_grouping
+	set_gaia_object_only
+	terrain_to_place_on DIRT
+}
+create_object DEER
+{
+	number_of_objects 4
+	set_place_for_every_player
+	set_gaia_object_only
+	set_loose_grouping
+	terrain_to_place_on DIRT
+}
+create_object BOAR
+{
+		number_of_objects 2
+		set_place_for_every_player
+		set_gaia_object_only
+		terrain_to_place_on DIRT
+}
+//player oaks
+create_object OAKTREE
+{
+		number_of_objects 5
+		set_gaia_object_only
+		set_place_for_every_player
+		min_distance_to_players 4
+		max_distance_to_players 5
+		min_distance_group_placement 2
+}
+create_object GOLD
+{
+	number_of_objects 7
+	number_of_groups 6
+	set_tight_grouping
+	group_placement_radius 3
+	set_scaling_to_map_size
+	min_distance_group_placement 3
+	temp_min_distance_group_placement 7
+	terrain_to_place_on DIRT
+}
+create_object RELIC
+{
+	number_of_objects 5
+	min_distance_to_players 10
+	max_distance_to_players 100
+	terrain_to_place_on DIRT
+}
+//maybe add a pond ?
+create_object SHORE_FISH
+{
+	number_of_objects 40
+}
+create_object HEAD
+{
+	number_of_objects 100
+	min_distance_to_players 10
+	max_distance_to_players 100
+}
